@@ -53,6 +53,9 @@ gem 'sentry-ruby'
 gem 'sentry-rails'
 # rubocop:enable Bundler/OrderedGems
 
+# Bootstrap framework styles and components
+gem 'bootstrap', '~> 5.3.3'
+# Slim is a fast, lightweight templating engine
 gem 'slim'
 
 group :development, :test do
