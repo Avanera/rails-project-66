@@ -1,0 +1,17 @@
+require:
+  - rubocop-capybara
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+
+Style/Documentation:
+  Enabled: false
