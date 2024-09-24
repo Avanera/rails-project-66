@@ -55,6 +55,13 @@ gem 'sentry-rails'
 
 # Bootstrap framework styles and components
 gem 'bootstrap', '~> 5.3.3'
+# Extends dotenv to enforce required environment variables from .env before deployment.
+gem 'dotenv-rails'
+# Octokit.rb wraps the GitHub API in a flat API client that follows Ruby conventions.
+gem 'octokit'
+# OmniAuth is a library that standardizes multi-provider authentication for web applications.
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
 # Slim is a fast, lightweight templating engine
 gem 'slim'
 
