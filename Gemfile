@@ -49,6 +49,13 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# rubocop:disable Bundler/OrderedGems
+# Sentry's Ruby SDK allows users to report messages, exceptions, and tracing events.
+gem 'stackprof'
+gem 'sentry-ruby'
+gem 'sentry-rails'
+# rubocop:enable Bundler/OrderedGems
+
 gem 'slim'
 
 group :development, :test do
