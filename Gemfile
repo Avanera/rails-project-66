@@ -56,6 +56,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'rubocop-capybara', require: false
   gem 'rubocop-rails', require: false
+  gem 'slim_lint', require: false
 end
 
 group :development do
