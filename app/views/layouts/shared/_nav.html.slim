@@ -1,0 +1,18 @@
+.d-flex.flex-wrap.align-items-center.py-2.border-bottom
+  .navbar.navbar-expand-md.navbar-light.me-auto
+    a.navbar-brand href='/'
+      = image_tag('hexlet_logo.jpg', size: '30x30', alt: 'Hexlet')
+    .collapse.navbar-collapse id='navbarToggler'
+      ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
+        li.nav-item.me-2
+          a.nav-link.text-dark href='/'
+            = t('.home')
+
+  .ul.nav.nav-pills
+    .li.nav-item
+      a.nav-link.text-secondary user email
+    .li.nav-item
+      / = button_to t('.log_out'),
+      /   logout_path,
+      /   method: :delete,
+      /   class: 'nav-link link-dark'

@@ -1,0 +1,8 @@
+ru:
+  layouts:
+    application:
+      app_name: Анализатор качества репозиториев
+      footer: "Анализатор качества репозиториев, %{year}"
+    shared:
+      nav:
+        home: Главная
