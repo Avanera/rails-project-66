@@ -25,18 +25,18 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
 
     get callback_auth_url('github')
 
-    assert_response :redirect
+    assert { response.redirect? }
     user = User.find_by(email: auth_hash[:info][:email].downcase)
-    assert_equal(user, current_user)
-    assert signed_in?
+    assert { user == current_user }
+    assert { signed_in? }
   end
 
   test 'logout should delete session' do
     sign_in users(:one)
-    assert session[:user_id]
+    assert { session[:user_id] }
 
     delete logout_url
 
-    assert_not session[:user_id]
+    assert { !session[:user_id] }
   end
 end

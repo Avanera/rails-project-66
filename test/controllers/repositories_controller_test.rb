@@ -41,15 +41,15 @@ class RepositoriesControllerTest < ActionDispatch::IntegrationTest
         post repositories_url, params: { repository: { github_id: 100_500 } }
       end
 
-      assert_redirected_to repositories_path
-      assert_equal I18n.t('repositories.create.success'), flash[:notice]
+      assert { response.redirect? && response.location == repositories_url }
+      assert { flash[:notice] == I18n.t('repositories.create.success') }
     end
   end
 
   test 'should get index' do
     get repositories_url
 
-    assert_response :success
+    assert { response.successful? }
   end
 
   test 'should get new' do
@@ -57,7 +57,7 @@ class RepositoriesControllerTest < ActionDispatch::IntegrationTest
 
     get new_repository_url
 
-    assert_response :success
+    assert { response.successful? }
   end
 
   test 'should show repository' do
@@ -65,6 +65,6 @@ class RepositoriesControllerTest < ActionDispatch::IntegrationTest
 
     get repository_url(repository)
 
-    assert_response :success
+    assert { response.successful? }
   end
 end
