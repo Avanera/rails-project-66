@@ -1,0 +1,9 @@
+one:
+  email: alice@example.com
+  nickname: Alice
+  token: ghp_23iac7xzd0t95p496ir4h5j11r73qomtpkzv
+
+two:
+  email: bob@example.com
+  nickname: Bob
+  token: ghp_23iac7xzd0t95p496ir4h5j11r73qomtpkzv
