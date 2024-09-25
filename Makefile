@@ -4,6 +4,10 @@ setup:
 	yarn build
 	yarn build:css
 	db-prepare
+	copy-env
+
+copy-env:
+	cp -n .env.example .env || true
 
 start:
 	bin/dev
