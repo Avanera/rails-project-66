@@ -62,6 +62,8 @@ gem 'octokit'
 # OmniAuth is a library that standardizes multi-provider authentication for web applications.
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
+# Simple Form is a flexible tool helping you with powerful components to create your forms.
+gem 'simple_form'
 # Slim is a fast, lightweight templating engine
 gem 'slim'
 
