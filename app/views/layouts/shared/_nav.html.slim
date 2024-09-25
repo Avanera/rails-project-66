@@ -9,10 +9,19 @@
             = t('.home')
 
   .ul.nav.nav-pills
-    .li.nav-item
-      a.nav-link.text-secondary user email
-    .li.nav-item
-      / = button_to t('.log_out'),
-      /   logout_path,
-      /   method: :delete,
-      /   class: 'nav-link link-dark'
+    - if current_user
+      .li.nav-item
+        a.nav-link.text-secondary
+          = current_user.email
+      .li.nav-item
+        = button_to t('.log_out'),
+          logout_path,
+          method: :delete,
+          data: { turbo: false },
+          class: 'nav-link link-dark'
+    - else
+      .li.nav-item
+        = button_to t('.github_login'),
+          auth_request_path(assign_provider),
+          data: { turbo: false },
+          class: 'nav-link link-dark'

@@ -9,4 +9,12 @@ module ApplicationHelper
       notice: 'alert alert-info'
     }[type.to_sym]
   end
+
+  def assign_provider
+    if Rails.env.development?
+      'developer'
+    else
+      'github'
+    end
+  end
 end
