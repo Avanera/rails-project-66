@@ -31,6 +31,6 @@ class RepositoryDataBuilderServiceTest < ActiveSupport::TestCase
     stub_fetch_data_from_octokit
     method_call = RepositoryDataBuilderService.new.build(100_500)
 
-    assert_equal(method_call, @built_params)
+    assert { method_call == @built_params }
   end
 end
