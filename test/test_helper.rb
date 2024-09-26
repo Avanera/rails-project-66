@@ -4,6 +4,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 require 'webmock/minitest'
+require 'minitest/mock'
 
 OmniAuth.config.test_mode = true
 
@@ -16,6 +17,9 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    def load_fixture(filename)
+      File.read(File.dirname(__FILE__) + "/fixtures/#{filename}")
+    end
   end
 end
 

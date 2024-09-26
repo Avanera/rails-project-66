@@ -1,0 +1,10 @@
+ru:
+  errors:
+    messages:
+      blank: не может быть пустым
+      not_saved:
+        one: "%{resource}: сохранение не удалось из-за %{count} ошибки:"
+        few: "%{resource}: сохранение не удалось из-за %{count} ошибок:"
+        many: "%{resource}: сохранение не удалось из-за %{count} ошибок:"
+        other: "%{resource}: сохранение не удалось из-за %{count} ошибок:"
+      too_short: недостаточной длины

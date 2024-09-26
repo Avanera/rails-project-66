@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    attributes:
+      repository:
+    models:
+      repository:
+        few: Репозитория
+        many: Репозиториев
+        one: Репозиторий
+        other: Репозитории

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :repositories, only: %i[index show new create]
   root 'welcome#index'
 
   post 'auth/:provider', to: 'auth#request', as: :auth_request
