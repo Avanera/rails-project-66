@@ -57,6 +57,8 @@ gem 'sentry-rails'
 gem 'bootstrap', '~> 5.3.3'
 # Extends dotenv to enforce required environment variables from .env before deployment.
 gem 'dotenv-rails'
+# Enumerated attributes with I18n and ActiveRecord/Mongoid/MongoMapper/Sequel support
+gem 'enumerize'
 # Octokit.rb wraps the GitHub API in a flat API client that follows Ruby conventions.
 gem 'octokit'
 # OmniAuth is a library that standardizes multi-provider authentication for web applications.
@@ -71,6 +73,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
   gem 'faker'
+  gem 'pry'
   gem 'rubocop-capybara', require: false
   gem 'rubocop-rails', require: false
   gem 'slim_lint', require: false
