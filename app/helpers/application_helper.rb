@@ -11,10 +11,10 @@ module ApplicationHelper
   end
 
   def assign_provider
-    if Rails.env.development?
-      'developer'
-    else
-      'github'
-    end
+    # if Rails.env.development?
+    #   'developer'
+    # else
+    'github'
+    # end
   end
 end
