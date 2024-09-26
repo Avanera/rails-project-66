@@ -7,10 +7,11 @@
         li.nav-item.me-2
           a.nav-link.text-dark href='/'
             = t('.home')
-        li.nav-item.me-2
-          = link_to t('.repositories'),
-            repositories_path,
-            class: 'nav-link text-dark'
+        - if current_user
+          li.nav-item.me-2
+            = link_to t('.repositories'),
+              repositories_path,
+              class: 'nav-link text-dark'
 
   .ul.nav.nav-pills
     - if current_user

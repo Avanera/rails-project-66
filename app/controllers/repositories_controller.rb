@@ -3,6 +3,10 @@
 require 'octokit'
 
 class RepositoriesController < ApplicationController
+  LEARN_MORE_URL = 'https://ru.hexlet.io/programs/rails/projects/66'
+
+  before_action :authenticate_user!
+
   def index
     @repositories = current_user.repositories.order(created_at: :desc)
   end

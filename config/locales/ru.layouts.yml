@@ -9,3 +9,5 @@ ru:
         log_out: Выйти
         github_login: Войти с Github
         repositories: Репозитории
+  flashes:
+    not_logged_in: Для выполнения операции необходимо войти в систему.
