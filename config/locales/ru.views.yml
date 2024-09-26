@@ -9,3 +9,24 @@ ru:
         Он отслеживает изменения и прогоняет их через встроенные анализаторы.
         Затем формирует отчеты и отправляет их пользователю.
       title: Анализатор качества репозиториев
+  repositories:
+    create:
+      success: Репозиторий успешно создан.
+      failure: Не удалось сохранить репозиторий.
+    index:
+      add: Добавить
+      language: Язык
+      last_check_status: Статус последней проверки
+      repository_title: Название
+      title: Репозитории
+    form:
+      add_repo: Создать
+      repo_label: Github
+    new:
+      back_to_repositories: Назад к репозиториям
+      new_repository: Новый репозиторий
+    repository:
+      created_at: Дата создания
+      language: Язык
+      name: Название
+      updated_at: Дата обновления

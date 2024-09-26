@@ -1,0 +1,25 @@
+ru:
+  activerecord:
+    attributes:
+      repository:
+        github_id: Github ID
+        language: Язык
+        email: Email
+        name: Имя
+        nickname: Ник
+        image_url: Ссылка на картинку
+        token: Токен
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    errors:
+      models:
+        repository:
+          attributes:
+            language:
+              inclusion: "'%{value}' не поддерживается."
+    models:
+      repository:
+        few: Репозитория
+        many: Репозиториев
+        one: Репозиторий
+        other: Репозитории

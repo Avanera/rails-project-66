@@ -1,0 +1,11 @@
+ru:
+  simple_form:
+    required:
+      text: 'Обязательное поле'
+      mark: '*'
+    error_notification:
+      default_message: "Проверьте введенные данные:"
+  helpers:
+    submit:
+      repository:
+        create: Создать репозиторий

@@ -2,4 +2,5 @@
 
 class Repository < ApplicationRecord
   belongs_to :user
+  validates :github_id, presence: true
 end
