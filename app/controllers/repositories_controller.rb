@@ -19,14 +19,13 @@ class RepositoriesController < ApplicationController
   def new
     authorize Repository
     @repository = current_user.repositories.build
-    @github_repos = fetch_repos_from_github
+    @github_repos = fetch_permitted_repos_from_github
   end
 
   def create
     authorize Repository
-    @repository = current_user.repositories.find_or_initialize_by(repository_params)
-    repository_data = RepositoryDataBuilderService.new.build(@repository.github_id)
-    if @repository.update(repository_data)
+    @repository = find_or_initialize_repository
+    if update_repository
       redirect_to repositories_path, notice: t('.success')
     else
       flash.now[:alert] = t('.failure')
@@ -40,9 +39,17 @@ class RepositoriesController < ApplicationController
     params.require(:repository).permit(:github_id)
   end
 
-  def fetch_repos_from_github
+  def fetch_permitted_repos_from_github
     client = Octokit::Client.new(access_token: current_user.token, auto_paginate: true)
-    Rails.logger.debug client.repos
-    client.repos
+    client.repos.select { |repo| Repository::ACCEPTED_LANGUAGES.include? repo[:language] }
+  end
+
+  def find_or_initialize_repository
+    current_user.repositories.find_or_initialize_by(repository_params)
+  end
+
+  def update_repository
+    repository_data = RepositoryDataBuilderService.new.build(@repository.github_id)
+    @repository.update(repository_data)
   end
 end
