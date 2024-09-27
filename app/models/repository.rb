@@ -6,6 +6,8 @@ class Repository < ApplicationRecord
   extend Enumerize
 
   belongs_to :user, touch: true
+  has_many :checks, dependent: :destroy
+
   validates :github_id, presence: true
   enumerize :language, in: ACCEPTED_LANGUAGES
 end

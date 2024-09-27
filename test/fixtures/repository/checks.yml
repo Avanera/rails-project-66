@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commit_id: MyString
+  repository: one
+  state: created
+  passed: false
+
+two:
+  commit_id: MyString
+  repository: two
+  state: created
+  passed: false
