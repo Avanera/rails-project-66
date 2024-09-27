@@ -53,6 +53,8 @@ gem 'sentry-ruby'
 gem 'sentry-rails'
 # rubocop:enable Bundler/OrderedGems
 
+# State machines for Ruby classes
+gem 'aasm'
 # Bootstrap framework styles and components
 gem 'bootstrap', '~> 5.3.3'
 # Extends dotenv to enforce required environment variables from .env before deployment.
@@ -77,6 +79,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
   gem 'faker'
+  # gem 'i18n-debug'
   gem 'pry'
   gem 'rubocop-capybara', require: false
   gem 'rubocop-rails', require: false
