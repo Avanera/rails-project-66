@@ -40,8 +40,10 @@ class RepositoriesController < ApplicationController
   end
 
   def fetch_permitted_repos_from_github
-    client = Octokit::Client.new(access_token: current_user.token, auto_paginate: true)
-    client.repos.select { |repo| Repository::ACCEPTED_LANGUAGES.include? repo[:language] }
+    Rails.cache.fetch("#{current_user.cache_key_with_version}/repos", expires_in: 10.minutes) do
+      client = Octokit::Client.new(access_token: current_user.token, auto_paginate: true)
+      client.repos.select { |repo| Repository::ACCEPTED_LANGUAGES.include? repo[:language] }
+    end
   end
 
   def find_or_initialize_repository
