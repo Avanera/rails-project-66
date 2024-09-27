@@ -12,15 +12,18 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = current_user.repositories.find(params[:id])
+    @repository = Repository.find(params[:id])
+    authorize @repository
   end
 
   def new
+    authorize Repository
     @repository = current_user.repositories.build
     @github_repos = fetch_repos_from_github
   end
 
   def create
+    authorize Repository
     @repository = current_user.repositories.find_or_initialize_by(repository_params)
     repository_data = RepositoryDataBuilderService.new.build(@repository.github_id)
     if @repository.update(repository_data)
