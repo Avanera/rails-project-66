@@ -57,6 +57,8 @@ gem 'sentry-rails'
 gem 'bootstrap', '~> 5.3.3'
 # Extends dotenv to enforce required environment variables from .env before deployment.
 gem 'dotenv-rails'
+# A simple, configurable object container implemented in Ruby
+gem 'dry-container'
 # Enumerated attributes with I18n and ActiveRecord/Mongoid/MongoMapper/Sequel support
 gem 'enumerize'
 # Octokit.rb wraps the GitHub API in a flat API client that follows Ruby conventions.
