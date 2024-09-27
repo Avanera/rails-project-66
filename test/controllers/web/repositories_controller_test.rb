@@ -18,21 +18,6 @@ module Web
       }
     end
 
-    def stub_fetch_repos_from_octokit # rubocop:disable Metrics/MethodLength
-      response_body = load_fixture('files/response_array.json')
-      stub_request(:get, 'https://api.github.com/user/repos?per_page=100')
-        .with(
-          headers: {
-            'Accept' => 'application/vnd.github.v3+json',
-            'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-            'Authorization' => 'token ghp_23iac7xzd0t95p496ir4h5j11r73qomtpkzv',
-            'Content-Type' => 'application/json',
-            'User-Agent' => 'Octokit Ruby Gem 9.1.0'
-          }
-        )
-        .to_return(status: 200, body: response_body, headers: { 'Content-Type' => 'application/json' })
-    end
-
     test 'should create repository' do
       mock = Minitest::Mock.new
       mock.expect(:build, repository_params, [100_500])
@@ -54,8 +39,6 @@ module Web
     end
 
     test 'should get new' do
-      stub_fetch_repos_from_octokit
-
       get new_repository_url
 
       assert { response.successful? }

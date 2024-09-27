@@ -24,8 +24,8 @@ class RepositoryDataBuilderService
   end
 
   def create_client
-    # Octokit::Client.new(access_token: current_user.token, auto_paginate: true)
-    Octokit::Client.new(credentials)
+    # ApplicationContainer[:octokit_client].new(access_token: current_user.token, auto_paginate: true)
+    ApplicationContainer[:octokit_client].new(credentials)
   end
 
   def credentials
