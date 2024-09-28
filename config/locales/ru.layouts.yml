@@ -1,13 +1,14 @@
 ru:
   layouts:
-    application:
-      app_name: Анализатор качества репозиториев
-      footer: "Анализатор качества репозиториев, %{year}"
-    shared:
-      nav:
-        home: Главная
-        log_out: Выйти
-        github_login: Войти с Github
-        repositories: Репозитории
+    web:
+      application:
+        app_name: Анализатор качества репозиториев
+        footer: "Анализатор качества репозиториев, %{year}"
+      shared:
+        nav:
+          home: Главная
+          log_out: Выйти
+          github_login: Войти с Github
+          repositories: Репозитории
   flashes:
     not_logged_in: Для выполнения операции необходимо войти в систему.

@@ -10,8 +10,8 @@ p
 p
   strong.me-2
     = t('.created_at')
-  = repository.clone_url
+  = repository.created_at.strftime('%d-%m-%Y, %H:%M')
 p
   strong.me-2
     = t('.updated_at')
-  = repository.ssh_url
+  = repository.updated_at.strftime('%d-%m-%Y, %H:%M')

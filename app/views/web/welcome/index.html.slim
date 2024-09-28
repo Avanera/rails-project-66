@@ -4,5 +4,5 @@ h2.fw-bold = t('.title')
 p = t('.project_description')
 
 = link_to t('.learn_more'),
-  (current_user ? repositories_path : RepositoriesController::LEARN_MORE_URL),
+  create_learn_more_url,
   class: 'btn btn-primary btn-lg px-4 mt-3 fw-bold'
