@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_27_230106) do
     t.string "commit_id"
     t.integer "repository_id", null: false
     t.string "state", null: false
+    t.string "result"
     t.boolean "passed", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

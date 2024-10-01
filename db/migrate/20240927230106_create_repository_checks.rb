@@ -4,6 +4,7 @@ class CreateRepositoryChecks < ActiveRecord::Migration[7.1]
       t.string :commit_id
       t.references :repository, null: false, foreign_key: true, index: true
       t.string :state, null: false
+      t.string :result
       t.boolean :passed, null: false, default: false
 
       t.timestamps
