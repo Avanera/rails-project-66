@@ -1,0 +1,17 @@
+table.table.table-striped
+  thead
+    tr
+      th{ scope = 'col' }
+      th{ scope = 'col' } = t('.state')
+      th{ scope = 'col' } = t('.commit_id')
+      th{ scope = 'col' } = t('.check_passed')
+      th{ scope = 'col' } = t('.created_at')
+
+  tbody
+    - repository.checks.order(created_at: :desc).each do |check|
+      tr
+        td = link_to check.id, repository_check_path(repository, check)
+        td = check.aasm.human_state
+        td = link_to check.commit_id, github_commit_url(@repository, check) if check.commit_id
+        td = human_attribute_name_passed(check)
+        td = l(repository.created_at, format: :short)

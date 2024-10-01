@@ -2,11 +2,11 @@ AllCops:
   TargetRubyVersion: 3.2.2
   NewCops: enable
   Exclude:
-    - "bin/**"
-    - "db/schema.rb"
-    - "db/migrate/**"
-    - "vendor/**/*"
-    - "node_modules/**/*"
+    - "**/bin/**"
+    - "**/db/schema.rb"
+    - "**/db/migrate/**"
+    - "**/vendor/**/*"
+    - "**/node_modules/**/*"
   SuggestExtensions: false
 
 require:

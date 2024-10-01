@@ -1,0 +1,24 @@
+= link_to t('.to_repository'), @check.repository, class: 'btn btn-primary mb-4'
+h1 = "#{t('.checking')} # #{@check.commit_id}"
+
+- offences = JSON.parse(@check.result).compact if @check.result
+
+table.table
+  tbody
+    tr
+      td = t('.created_at')
+      td = l(@check.created_at, format: :long)
+    tr
+      td = t('.state')
+      td = @check.aasm.human_state
+    tr
+      td = t('.check_passed')
+      td = human_attribute_name_passed(@check)
+    tr
+      td = t('.offences_count')
+      td = offences.size if @check.result
+    tr
+      td = t('.commit_id')
+      td = @check.commit_id
+
+= render 'check_result', offences: offences if @check.result && offences.any?

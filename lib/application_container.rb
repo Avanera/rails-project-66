@@ -8,6 +8,6 @@ class ApplicationContainer
     register(:linter) { LinterStub }
   else
     register(:octokit_client) { Octokit::Client }
-    register(:linter) { RealLinter }
+    register(:linter) { CheckRepositoryService }
   end
 end

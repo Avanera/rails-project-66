@@ -15,3 +15,7 @@ table.table.table-striped.table-hover.mt-4
         td = link_to repository.full_name, repository
         td = repository.language
         td
+          - if repository.checks.any?
+            = human_attribute_name_passed(repository.checks.last)
+          - else
+            = t('.no_checks_yet')

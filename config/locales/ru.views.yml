@@ -11,6 +11,26 @@ ru:
           Затем формирует отчеты и отправляет их пользователю.
         title: Анализатор качества репозиториев
     repositories:
+      checks:
+        check_result:
+          message: Сообщение
+          rool: Идентификатор правила
+          string_and_symbol: Строка и символ
+        create:
+          success: Проверка началась
+        list_of_checks:
+          check_passed: Проверка пройдена?
+          commit_id: ID коммита
+          created_at: Дата создания
+          state: Статус
+        show:
+          checking: Проверка
+          to_repository: Перейти к репозиторию
+          created_at: Дата создания
+          state: Статус
+          check_passed: Проверка пройдена?
+          offences_count: Количество замечаний
+          commit_id: ID коммита
       create:
         success: Репозиторий успешно создан.
         failure: Не удалось сохранить репозиторий.
@@ -18,6 +38,7 @@ ru:
         add: Добавить
         language: Язык
         last_check_status: Статус последней проверки
+        no_checks_yet: Проверок еще не было
         repository_title: Название
         title: Репозитории
       form:
@@ -27,6 +48,7 @@ ru:
         back_to_repositories: Назад к репозиториям
         new_repository: Новый репозиторий
       repository:
+        check: Проверить
         created_at: Дата создания
         language: Язык
         name: Название
