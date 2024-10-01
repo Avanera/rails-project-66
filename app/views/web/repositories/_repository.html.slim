@@ -1,4 +1,5 @@
 h1.mb-4 = repository.full_name
+
 p
   strong.me-2
     = t('.name')
@@ -10,8 +11,11 @@ p
 p
   strong.me-2
     = t('.created_at')
-  = repository.created_at.strftime('%d-%m-%Y, %H:%M')
+  = l(repository.created_at, format: :long)
 p
   strong.me-2
     = t('.updated_at')
-  = repository.updated_at.strftime('%d-%m-%Y, %H:%M')
+  = l(repository.updated_at, format: :long)
+
+hr
+

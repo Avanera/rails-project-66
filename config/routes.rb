@@ -2,7 +2,10 @@
 
 Rails.application.routes.draw do
   scope module: :web do
-    resources :repositories, only: %i[index show new create]
+    resources :repositories, only: %i[index show new create] do
+      resources :checks, only: %i[create show], module: :repositories
+    end
+
     root 'welcome#index'
 
     post 'auth/:provider', to: 'auth#request', as: :auth_request
