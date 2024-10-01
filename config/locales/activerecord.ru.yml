@@ -9,6 +9,13 @@ ru:
         nickname: Ник
         image_url: Ссылка на картинку
         token: Токен
+      repository/check:
+        state/finished: Завершена
+        state/created: Создан
+        state/checking: В процессе
+        state/failed: Ошибка
+        passed/true: Пройдена
+        passed/false: Не пройдена
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     errors:
