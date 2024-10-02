@@ -2,7 +2,7 @@ ru:
   activerecord:
     attributes:
       repository:
-        github_id: Github ID
+        github_id: Github
         language: Язык
         email: Email
         name: Имя

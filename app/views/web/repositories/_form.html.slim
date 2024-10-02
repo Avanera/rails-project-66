@@ -1,7 +1,4 @@
 = simple_form_for repository do |f|
-  - if f.object.errors.present?
-    = f.error_notification message: f.object.errors.full_messages.to_sentence
-
   div
     = f.input :github_id,
       collection: @github_repos,

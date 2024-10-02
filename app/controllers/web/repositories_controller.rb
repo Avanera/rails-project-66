@@ -50,6 +50,11 @@ module Web
     end
 
     def update_repository
+      unless @repository.github_id
+        @repository.errors.add(:github_id, :blank)
+        return false
+      end
+
       repository_data = RepositoryDataBuilderService.new.build(@repository.github_id)
       @repository.update(repository_data)
     end
