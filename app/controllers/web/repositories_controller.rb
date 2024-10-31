@@ -56,7 +56,7 @@ module Web
         return false
       end
 
-      repository_data = RepositoryDataBuilderService.new.build(@repository.github_id)
+      repository_data = RepositoryDataBuilderService.new.build(@repository.github_id, current_user)
       @repository.update(repository_data)
     end
   end

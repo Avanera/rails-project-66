@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class RepositoryDataBuilderService
-  def build(repo_id)
+  def build(repo_id, current_user)
+    @client = create_client(current_user)
     repository_data = retrieve_repository_data(repo_id)
     build_params(repository_data)
   end
@@ -9,8 +10,7 @@ class RepositoryDataBuilderService
   private
 
   def retrieve_repository_data(repo_id)
-    client = create_client
-    client.repository(repo_id)
+    @client.repository(repo_id)
   end
 
   def build_params(repository_data)
@@ -23,15 +23,7 @@ class RepositoryDataBuilderService
     }
   end
 
-  def create_client
-    # ApplicationContainer[:octokit_client].new(access_token: current_user.token, auto_paginate: true)
-    ApplicationContainer[:octokit_client].new(credentials)
-  end
-
-  def credentials
-    {
-      login: Rails.application.credentials[:github_login],
-      password: Rails.application.credentials[:github_password]
-    }
+  def create_client(current_user)
+    ApplicationContainer[:octokit_client].new(access_token: current_user.token, auto_paginate: true)
   end
 end
