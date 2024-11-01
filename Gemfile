@@ -72,6 +72,9 @@ gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
+
+gem 'rubocop-capybara', require: false
+gem 'rubocop-rails', require: false
 # Simple Form is a flexible tool helping you with powerful components to create your forms.
 gem 'simple_form'
 # Slim is a fast, lightweight templating engine
@@ -83,8 +86,6 @@ group :development, :test do
   gem 'faker'
   # gem 'i18n-debug'
   gem 'pry'
-  gem 'rubocop-capybara', require: false
-  gem 'rubocop-rails', require: false
   gem 'slim_lint', require: false
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '>= 1.4'

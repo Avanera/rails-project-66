@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Repository < ApplicationRecord
-  ACCEPTED_LANGUAGES = ['Ruby'].freeze
+  ACCEPTED_LANGUAGES = %w[Ruby JavaScript].freeze
 
   extend Enumerize
 
