@@ -24,7 +24,9 @@ module Web
     def create
       authorize Repository
       @repository = find_or_initialize_repository
+      @client = create_client
       if update_repository
+        CreateChecksHookService.new.run(@repository, @client)
         redirect_to repositories_path, notice: t('.success')
       else
         flash.now[:alert] = t('.failure')
@@ -39,9 +41,8 @@ module Web
     end
 
     def fetch_permitted_repos_from_github
+      client = create_client
       Rails.cache.fetch("#{current_user.cache_key_with_version}/repos", expires_in: 10.minutes) do
-        client = ApplicationContainer[:octokit_client].new(access_token: current_user.token,
-                                                           auto_paginate: true)
         client.repos.select { |repo| Repository::ACCEPTED_LANGUAGES.include? repo[:language] }
       end
     end
@@ -56,8 +57,13 @@ module Web
         return false
       end
 
-      repository_data = RepositoryDataBuilderService.new.build(@repository.github_id, current_user)
+      repository_data = RepositoryDataBuilderService.new.build(@repository.github_id, @client)
       @repository.update(repository_data)
+    end
+
+    def create_client
+      ApplicationContainer[:octokit_client].new(access_token: current_user.token,
+                                                auto_paginate: true)
     end
   end
 end

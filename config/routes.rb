@@ -12,4 +12,8 @@ Rails.application.routes.draw do
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     delete '/logout', to: 'auth#logout'
   end
+
+  scope module: :api do
+    resources :checks, only: [:create]
+  end
 end

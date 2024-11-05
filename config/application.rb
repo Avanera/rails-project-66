@@ -27,5 +27,8 @@ module RailsProject66
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.available_locales = %i[ru]
     config.i18n.default_locale = :ru
+
+    # create an external link for web hooks
+    routes.default_url_options = { host: ENV.fetch('BASE_URL', nil) }
   end
 end
