@@ -4,6 +4,7 @@ require 'test_helper'
 
 class RepositoryDataBuilderServiceTest < ActiveSupport::TestCase
   def setup
+    @client = OctokitClientStub.new
     @built_params = {
       name: 'aaa',
       full_name: 'owner/aaa',
@@ -14,7 +15,7 @@ class RepositoryDataBuilderServiceTest < ActiveSupport::TestCase
   end
 
   test '#build' do
-    method_call = RepositoryDataBuilderService.new.build(100_500)
+    method_call = RepositoryDataBuilderService.new.build(100_500, @client)
 
     assert { method_call == @built_params }
   end

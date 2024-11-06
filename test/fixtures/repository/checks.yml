@@ -2,12 +2,12 @@
 
 one:
   commit_id: MyString
-  repository: one
+  repository: javascript
   state: created
   passed: false
 
 two:
   commit_id: MyString
-  repository: two
+  repository: ruby
   state: created
   passed: false

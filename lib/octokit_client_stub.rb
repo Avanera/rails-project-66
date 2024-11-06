@@ -15,4 +15,6 @@ class OctokitClientStub
   def repository(*)
     Repo.new(123_456_789, 'aaa', 'owner/aaa', 'Ruby', 'git@github.com:owner/aaa.git', 'https://github.com/owner/aaa.git')
   end
+
+  def create_hook(*); end
 end

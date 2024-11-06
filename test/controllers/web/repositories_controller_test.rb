@@ -19,17 +19,12 @@ module Web
     end
 
     test 'should create repository' do
-      mock = Minitest::Mock.new
-      mock.expect(:build, repository_params, [100_500])
-
-      RepositoryDataBuilderService.stub :new, mock do
-        assert_difference('Repository.count') do
-          post repositories_url, params: { repository: { github_id: 100_500 } }
-        end
-
-        assert { response.redirect? && response.location == repositories_url }
-        assert { flash[:notice] == I18n.t('web.repositories.create.success') }
+      assert_difference('Repository.count') do
+        post repositories_url, params: { repository: { github_id: 100_500 } }
       end
+
+      assert { response.redirect? && response.location == repositories_url }
+      assert { flash[:notice] == I18n.t('web.repositories.create.success') }
     end
 
     test 'should get index' do
@@ -45,7 +40,7 @@ module Web
     end
 
     test 'should show repository' do
-      repository = repositories(:one)
+      repository = repositories(:javascript)
 
       get repository_url(repository)
 

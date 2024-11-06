@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "rubocop_version": "1.50.2",
+    "ruby_engine": "ruby",
+    "ruby_version": "3.1.2",
+    "ruby_patchlevel": "20",
+    "ruby_platform": "x86_64-linux"
+  },
+  "files": [
+    {
+      "path": "tmp/repositories/598171254/app/channels/application_cable/channel.rb",
+      "offenses": []
+    },
+    {
+      "path": "tmp/repositories/598171254/app/channels/application_cable/connection.rb",
+      "offenses": []
+    },
+    {
+      "path": "tmp/repositories/598171254/app/services/linter_checkers/eslint_check_service.rb",
+      "offenses": [
+        {
+          "severity": "convention",
+          "message": "Extra empty line detected at class body beginning.",
+          "cop_name": "Layout/EmptyLinesAroundClassBody",
+          "corrected": false,
+          "correctable": true,
+          "location": {
+            "start_line": 4,
+            "start_column": 1,
+            "last_line": 5,
+            "last_column": 1,
+            "length": 1,
+            "line": 4,
+            "column": 1
+          }
+        }
+      ]
+    },
+    {
+      "path": "tmp/repositories/598171254/app/services/linter_checkers/rubocop_check_service.rb",
+      "offenses": [
+        {
+          "severity": "convention",
+          "message": "Extra empty line detected at class body beginning.",
+          "cop_name": "Layout/EmptyLinesAroundClassBody",
+          "corrected": false,
+          "correctable": true,
+          "location": {
+            "start_line": 4,
+            "start_column": 1,
+            "last_line": 5,
+            "last_column": 1,
+            "length": 1,
+            "line": 4,
+            "column": 1
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "offense_count": 2,
+    "target_file_count": 4,
+    "inspected_file_count": 4
+  }
+}

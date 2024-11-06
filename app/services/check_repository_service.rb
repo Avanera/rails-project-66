@@ -29,14 +29,14 @@ class CheckRepositoryService
   end
 
   def run_linter
-    linter = "Linter::#{@repository.language.capitalize}Linter".constantize
+    linter = "#{@repository.language.capitalize}LinterService".constantize
     linter.new(@repo_path, @repository, @check).run
   end
 
   def clone_repo_to_tmp
     remove_tmp_directory if Dir.exist?(@repo_path)
     command_str = "git clone #{@repository.clone_url} #{@repo_path}"
-    Open3.popen3(command_str) do |_, stdout, stderr, wait_thr|
+    ApplicationContainer[:open3].capture3(command_str) do |_, stdout, stderr, wait_thr|
       Rails.logger.info("Starting git clone from #{@repository.clone_url} to #{@repo_path}")
       Rails.logger.info(stdout.read)
       Rails.logger.error(stderr.read)
@@ -51,11 +51,13 @@ class CheckRepositoryService
 
       sleep SLEEP_INTERVAL
     end
-    raise StandardError, t('services.check_repo.errors.directory_not_found', repo_path: @repo_path)
+    raise StandardError,
+          I18n.t('services.check_repo.errors.directory_not_found', repo_path: @repo_path)
   end
 
   def assign_check_commit_id
-    stdout, stderr, status = Open3.capture3("cd #{@repo_path}; git rev-parse --short HEAD")
+    cmd = "cd #{@repo_path}; git rev-parse --short HEAD"
+    stdout, stderr, status = ApplicationContainer[:open3].capture3(cmd)
     if status.success?
       @check.commit_id = stdout.strip
     else
@@ -65,8 +67,8 @@ class CheckRepositoryService
 
   def log_commit_error(stderr)
     @check.fail!
-    Rails.logger.error(t('services.check_repo.errors.failed_to_get_commit_id',
-                         stderr: stderr.strip))
+    Rails.logger.error(I18n.t('services.check_repo.errors.failed_to_get_commit_id',
+                              stderr: stderr.strip))
   end
 
   def handle_failure(error)

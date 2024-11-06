@@ -3,11 +3,19 @@
 class ApplicationContainer
   extend Dry::Container::Mixin
 
-  if Rails.env.test?
-    register(:octokit_client) { OctokitClientStub }
-    register(:linter) { LinterStub }
-  else
-    register(:octokit_client) { Octokit::Client }
-    register(:linter) { CheckRepositoryService }
+  register(:octokit_client) do
+    if Rails.env.test?
+      OctokitClientStub
+    else
+      Octokit::Client
+    end
+  end
+
+  register(:open3) do
+    if Rails.env.test?
+      Open3Stub.new
+    else
+      Open3
+    end
   end
 end

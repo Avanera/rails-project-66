@@ -25,6 +25,10 @@ end
 
 module ActionDispatch
   class IntegrationTest
+    setup do
+      queue_adapter.perform_enqueued_jobs = true
+    end
+
     def sign_in(user, _options = {}) # rubocop:disable Metrics/MethodLength
       auth_hash = {
         provider: 'github',

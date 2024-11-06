@@ -5,7 +5,7 @@ require 'application_system_test_case'
 module Web
   class RepositoriesTest < ApplicationSystemTestCase
     setup do
-      @repository = repositories(:one)
+      @repository = repositories(:javascript)
     end
 
     test 'visiting the index' do

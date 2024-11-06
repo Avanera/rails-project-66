@@ -13,6 +13,6 @@ class Web::Repositories::ChecksController < Web::ApplicationController
     @check = @repository.checks.create
     authorize @check
     CheckRepositoryJob.perform_later(@repository, @check)
-    redirect_to @repository, notice: t('.success')
+    redirect_to repository_url(@repository), notice: t('.success')
   end
 end
