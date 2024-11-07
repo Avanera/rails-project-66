@@ -1,8 +1,6 @@
 = link_to t('.to_repository'), @check.repository, class: 'btn btn-primary mb-4'
 h1 = "#{t('.checking')} # #{@check.commit_id}"
 
-- offences = JSON.parse(@check.result).compact if @check.result
-
 table.table
   tbody
     tr
@@ -15,10 +13,10 @@ table.table
       td = t('.check_passed')
       td = human_attribute_name_passed(@check)
     tr
-      td = t('.offences_count')
-      td = offences.size if @check.result
+      td = t('.offenses_count')
+      td = @check.offenses_count
     tr
       td = t('.commit_id')
       td = @check.commit_id
 
-= render 'check_result', offences: offences if @check.result && offences.any?
+= render 'offenses', offenses: @check.offenses if @check.offenses.any?

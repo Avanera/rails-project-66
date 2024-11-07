@@ -1,0 +1,16 @@
+= t('.hello', name: @user.nickname)
+| \n\n
+
+= t('.check_result', id: @check.id, repo_name: @repository.name, count: @check.offenses_count)
+= t('.recommends')
+= repository_check_url(@repository, @check)
+| \n\n
+= '------------------------------------------------------------------------'
+| \n\n
+
+= t('.thanks')
+| \n\n
+
+= t('.signature')
+= t('.team')
+= root_url

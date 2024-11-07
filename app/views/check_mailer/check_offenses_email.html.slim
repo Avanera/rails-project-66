@@ -1,0 +1,13 @@
+p = t('.hello', name: @user.nickname)
+br
+p = t('.check_result', id: @check.id, repo_name: @repository.name, count: @check.offenses_count)
+br
+p = t('.recommends')
+= link_to t('.check_id', id: @check.id), repository_check_url(@repository, @check)
+br
+br
+hr
+br
+p = t('.thanks')
+p = t('.signature')
+= link_to t('.team'), root_url

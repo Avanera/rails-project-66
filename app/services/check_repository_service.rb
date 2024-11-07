@@ -26,11 +26,12 @@ class CheckRepositoryService
     @check.start!
     run_linter
     @check.finish!
+    send_check_offenses_email unless @check.passed
   end
 
   def run_linter
-    linter = "#{@repository.language.capitalize}LinterService".constantize
-    linter.new(@repo_path, @repository, @check).run
+    linter_class = "Linter::#{@repository.language.capitalize}LinterService".constantize
+    linter_class.new(@repo_path, @repository, @check).run
   end
 
   def clone_repo_to_tmp
@@ -74,9 +75,20 @@ class CheckRepositoryService
   def handle_failure(error)
     @check.fail!
     Rails.logger.error(error.message)
+    CheckMailer.with(
+      check: @check,
+      repository: @repository
+    ).check_error_email.deliver_later
   end
 
   def remove_tmp_directory
     FileUtils.rm_rf(@repo_path)
+  end
+
+  def send_check_offenses_email
+    CheckMailer.with(
+      check: @check,
+      repository: @repository
+    ).check_offenses_email.deliver_later
   end
 end

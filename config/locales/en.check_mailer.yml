@@ -1,0 +1,23 @@
+en:
+  check_mailer:
+    check_error_email:
+      error_message: 'Unfortunately, the check (check id is %{id}) of the repository %{repository_name} failed.'
+      hello: 'Hello %{name}.'
+      recommends: 'We are already aware of the problem and are solving it. You can see all the checks of this repository by the link: '
+      signature: 'Sincerely,'
+      subject: 'Error checking the repository %{repository_name}'
+      team: 'Github Quality Analyzer team'
+      thanks: 'Thank you for your understanding and for using our service!'
+    check_offenses_email:
+      check_id: 'Check id #%{id}'
+      check_result:
+        one: 'As a result of the check of the repository %{repo_name} by the linter (check id - %{id}), %{count} offense was found.'
+        few: 'As a result of the check of the repository %{repo_name} by the linter (check id - %{id}), %{count} offenses were found.'
+        many: 'As a result of the check of the repository %{repo_name} by the linter (check id - %{id}), %{count} offenses were found.'
+        other: 'As a result of the check of the repository %{repo_name} by the linter (check id - %{id}), %{count} offenses were found.'
+      hello: 'Hello %{name}.'
+      recommends: 'We recommend that you fix all the comments and push the changes to github. After that, the check will be launched automatically. You can see the results of the check of this repository by the link: '
+      signature: 'Sincerely,'
+      subject: 'Received offenses when checking the repository %{repository_name}'
+      team: 'Github Quality Analyzer team'
+      thanks: 'Thank you for using our service!'

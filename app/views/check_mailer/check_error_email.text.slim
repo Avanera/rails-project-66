@@ -1,0 +1,13 @@
+= t('.hello', name: @user.nickname)
+| \n\n
+= t('.error_message', id: @check.id, repository_name: @repository.name)
+= t('.recommends')
+= repository_url(@repository)
+| \n\n
+= '------------------------------------------------------------------------'
+| \n\n
+= t('.thanks')
+| \n\n
+= t('.signature')
+= t('.team')
+= root_url

@@ -1,0 +1,13 @@
+p = t('.hello', name: @user.nickname)
+br
+p = t('.error_message', id: @check.id, repository_name: @repository.name)
+br
+p = t('.recommends')
+= link_to @repository.name, repository_url(@repository)
+br
+br
+hr
+br
+p = t('.thanks')
+p = t('.signature')
+= link_to t('.team'), root_url

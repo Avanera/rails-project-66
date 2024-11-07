@@ -29,7 +29,7 @@ ru:
           created_at: Дата создания
           state: Статус
           check_passed: Проверка пройдена?
-          offences_count: Количество замечаний
+          offenses_count: Количество замечаний
           commit_id: ID коммита
       create:
         success: Репозиторий успешно создан.
