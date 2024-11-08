@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     delete '/logout', to: 'auth#logout'
   end
 
-  scope module: :api do
+  namespace :api do
     resources :checks, only: [:create]
   end
 end

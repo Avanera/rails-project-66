@@ -23,7 +23,7 @@ module Api
 
       assert_difference('Repository::Check.count', 1) do
         perform_enqueued_jobs do
-          post checks_url, params: @test_payload, headers:
+          post api_checks_url, params: @test_payload, headers:
         end
       end
 

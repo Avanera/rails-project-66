@@ -30,7 +30,7 @@ module Web
         assert { response.redirect? && response.location == repository_url(@repository) }
         assert { flash[:notice] == I18n.t('web.repositories.checks.create.success') }
         new_check = @repository.checks.last
-        assert_not { new_check.passed }
+        assert_not(new_check.passed)
 
         assert_emails 1
         email = ActionMailer::Base.deliveries.last
