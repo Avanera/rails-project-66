@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web' if Rails.env.development?
+
 Rails.application.routes.draw do
   scope module: :web do
     resources :repositories, only: %i[index show new create] do
@@ -16,4 +18,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :checks, only: [:create]
   end
+
+  mount Sidekiq::Web => '/sidekiq' if Rails.env.development?
 end

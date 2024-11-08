@@ -75,6 +75,8 @@ gem 'pundit'
 
 gem 'rubocop-capybara', require: false
 gem 'rubocop-rails', require: false
+# Simple, efficient background processing for Ruby
+gem 'sidekiq'
 # Simple Form is a flexible tool helping you with powerful components to create your forms.
 gem 'simple_form'
 # Slim is a fast, lightweight templating engine
