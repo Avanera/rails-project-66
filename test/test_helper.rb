@@ -8,6 +8,9 @@ require 'minitest/mock'
 
 OmniAuth.config.test_mode = true
 
+# create an external link for web hooks
+Rails.application.routes.default_url_options[:host] = 'example.com'
+
 module ActiveSupport
   class TestCase
     # Run tests in parallel with specified workers

@@ -29,6 +29,6 @@ module RailsProject66
     config.i18n.default_locale = :ru
 
     # create an external link for web hooks
-    routes.default_url_options = { host: ENV.fetch('BASE_URL', nil) }
+    # routes.default_url_options = { host: ENV.fetch('BASE_URL', nil) }
   end
 end

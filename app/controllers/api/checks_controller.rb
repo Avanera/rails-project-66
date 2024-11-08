@@ -19,7 +19,7 @@ class Api::ChecksController < Api::ApplicationController
   private
 
   def verify_signature
-    secret = ENV.fetch('GITHUB_WEBHOOK_SECRET')
+    secret = ENV.fetch('WEBHOOK_SECRET_GITHUB')
     digest = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), secret, request.raw_post)
     signature = "sha256=#{digest}"
     Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
