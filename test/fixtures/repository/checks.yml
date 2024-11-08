@@ -3,11 +3,11 @@
 one:
   commit_id: MyString
   repository: javascript
-  state: created
+  aasm_state: created
   passed: false
 
 two:
   commit_id: MyString
   repository: ruby
-  state: created
+  aasm_state: created
   passed: false

@@ -12,17 +12,17 @@ ru:
         title: Анализатор качества репозиториев
     repositories:
       checks:
-        check_result:
-          message: Сообщение
-          rool: Идентификатор правила
-          string_and_symbol: Строка и символ
         create:
           success: Проверка началась
         list_of_checks:
           check_passed: Проверка пройдена?
           commit_id: ID коммита
           created_at: Дата создания
-          state: Статус
+          aasm_state: Статус
+        offenses:
+          message: Сообщение
+          rool: Идентификатор правила
+          string_and_symbol: Строка и символ
         show:
           checking: Проверка
           to_repository: Перейти к репозиторию
