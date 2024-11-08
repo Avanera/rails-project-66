@@ -4,6 +4,7 @@ class Repository::Check < ApplicationRecord
   include AASM
 
   belongs_to :repository
+  has_many :offenses, dependent: :destroy
 
   aasm column: :state do
     state :created, initial: true

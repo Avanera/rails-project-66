@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_27_230106) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_07_165005) do
   create_table "repositories", force: :cascade do |t|
     t.string "name"
     t.integer "github_id"
@@ -28,11 +28,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_27_230106) do
     t.string "commit_id"
     t.integer "repository_id", null: false
     t.string "state", null: false
-    t.string "result"
     t.boolean "passed", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "offenses_count", default: 0, null: false
     t.index ["repository_id"], name: "index_repository_checks_on_repository_id"
+  end
+
+  create_table "repository_offenses", force: :cascade do |t|
+    t.string "path"
+    t.string "rule_id"
+    t.string "message"
+    t.string "coords"
+    t.string "github_url"
+    t.integer "check_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["check_id"], name: "index_repository_offenses_on_check_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +59,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_27_230106) do
 
   add_foreign_key "repositories", "users"
   add_foreign_key "repository_checks", "repositories"
+  add_foreign_key "repository_offenses", "repository_checks", column: "check_id"
 end
