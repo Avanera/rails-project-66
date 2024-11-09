@@ -37,7 +37,8 @@ module Api
 
     def valid_signature
       digest = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'),
-                                       ENV.fetch('WEBHOOK_SECRET_GITHUB'), @test_payload)
+                                       Rails.application.credentials.webhook_secret_github,
+                                       @test_payload)
       "sha256=#{digest}"
     end
   end

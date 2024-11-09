@@ -6,6 +6,6 @@ module Web::Repositories::ChecksHelper
   end
 
   def github_commit_url(repository, check)
-    "#{repository.clone_url.delete_suffix('.git')}/commit/#{check.commit_id}"
+    "#{repository.clone_url&.delete_suffix('.git')}/commit/#{check.commit_id}"
   end
 end

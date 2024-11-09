@@ -80,15 +80,15 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { host: ENV.fetch('MAILER_DEFAULT_URL') }
+  config.action_mailer.default_url_options = { host: ENV.fetch('BASE_URL') }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: ENV.fetch('MAIL_USERNAME'),
-    password: ENV.fetch('MAIL_PASSWORD'),
-    address: ENV.fetch('MAIL_HOST'),
-    domain: ENV.fetch('MAIL_HOST'),
-    port: ENV.fetch('SMTP_PORT') || '25',
-    authentication: :cram_md5
+    user_name: Rails.application.credentials.mail_username,
+    password: Rails.application.credentials.mail_password,
+    address: Rails.application.credentials.mail_address,
+    domain: Rails.application.credentials.mail_domain,
+    port: Rails.application.credentials.mail_port,
+    authentication: :plain
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

@@ -8,7 +8,7 @@ class CreateChecksHookService
       {
         url: Rails.application.routes.url_helpers.api_checks_url(host: ENV.fetch('BASE_URL', nil)),
         content_type: 'json',
-        secret: ENV.fetch('WEBHOOK_SECRET_GITHUB')
+        secret: Rails.application.credentials.webhook_secret_github
       },
       { events: ['push'], active: true }
     )

@@ -21,7 +21,7 @@ class Api::ChecksController < Api::ApplicationController
   def verify_signature_if_any
     return true unless request.env['HTTP_X_HUB_SIGNATURE_256']
 
-    secret = ENV.fetch('WEBHOOK_SECRET_GITHUB')
+    secret = Rails.application.credentials.webhook_secret_github
     digest = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), secret, request.raw_post)
     signature = "sha256=#{digest}"
     Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
