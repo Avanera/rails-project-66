@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Web
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
     include Pundit::Authorization
 
     helper_method :current_user, :user_signed_in?

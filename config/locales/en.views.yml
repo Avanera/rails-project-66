@@ -1,0 +1,55 @@
+en:
+  web:
+    welcome:
+      index:
+        greeting: Welcome
+        learn_more: Learn more
+        presentation: "by Arina Zaitseva"
+        project_description: >
+          a project that helps to automatically monitor the quality of repositories on Github..
+          It tracks the changes and runs them through the built-in analyzers.
+          Then it generates reports and sends them to the user.
+        title: Repository Quality Analyzer
+    repositories:
+      checks:
+        create:
+          success: The check has begun
+        list_of_checks:
+          check_passed: Has the check passed?
+          commit_id: Commit ID
+          created_at: Created at
+          aasm_state: State
+        offenses:
+          message: Message
+          rule: Rule id
+          string_and_symbol: Coordinations
+        show:
+          checking: Checking
+          to_repository: Go to the repository
+          created_at: Created at
+          state: State
+          check_passed: Has the check passed?
+          offenses_count: Offenses count
+          commit_id: Commit ID
+      create:
+        success: The repository has been successfully created.
+        failure: The repository could not be saved.
+      index:
+        add: Add
+        language: Language
+        last_check_status: Last check status
+        no_checks_yet: No checks yet
+        repository_title: Title
+        title: Repositories
+      form:
+        add_repo: Add
+        repo_label: Github
+      new:
+        back_to_repositories: Back to repositories
+        new_repository: New repository
+      repository:
+        check: Check
+        created_at: Created at
+        language: Language
+        name: Name
+        updated_at: Updated at

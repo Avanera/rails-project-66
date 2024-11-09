@@ -1,0 +1,28 @@
+en:
+  activerecord:
+    attributes:
+      repository:
+        github_id: Github
+        language: Language
+        email: Email
+        name: Name
+        nickname: Nickname
+        image_url: Link to the picture
+        token: Token
+      repository/check:
+        aasm_state/finished: Finished
+        aasm_state/created: Created
+        aasm_state/checking: In process
+        aasm_state/failed: Error
+        passed/true: Passed
+        passed/false: Not passed
+    errors:
+      models:
+        repository:
+          attributes:
+            language:
+              inclusion: "'%{value}' is not supported."
+    models:
+      repository:
+        many: Repositories
+        one: Repository

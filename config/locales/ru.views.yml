@@ -21,7 +21,7 @@ ru:
           aasm_state: Статус
         offenses:
           message: Сообщение
-          rool: Идентификатор правила
+          rule: Идентификатор правила
           string_and_symbol: Строка и символ
         show:
           checking: Проверка

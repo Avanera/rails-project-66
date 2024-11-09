@@ -1,0 +1,9 @@
+en:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+  locales:
+    en: Switch to English
+    ru: Перейти на Русский

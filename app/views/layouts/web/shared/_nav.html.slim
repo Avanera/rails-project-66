@@ -14,6 +14,10 @@
               class: 'nav-link text-dark'
 
   .ul.nav.nav-pills
+    - I18n.available_locales.each do |locale|
+      li
+        - unless I18n.locale == locale
+          = link_to t(locale, scope: 'locales'), url_for(lang: locale), class: 'btn'
     - if current_user
       .li.nav-item
         a.nav-link.text-secondary

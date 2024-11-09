@@ -1,0 +1,7 @@
+en:
+  pundit:
+    repository_policy:
+      create?: Not enough rights. You can't add a repository!
+      new?: Not enough rights. You can't add a repository!
+      show?: Not enough rights. You can't view the repository!
+    default: You don't have the rights to do this

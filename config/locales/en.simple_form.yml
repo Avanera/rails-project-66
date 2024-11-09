@@ -1,0 +1,11 @@
+en:
+  simple_form:
+    required:
+      text: 'Required field'
+      mark: '*'
+    error_notification:
+      default_message: "Check the entered data:"
+  helpers:
+    submit:
+      repository:
+        create: Create a repository

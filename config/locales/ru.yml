@@ -28,7 +28,9 @@ ru:
       - :day
       - :month
       - :year
-
+  locales:
+    en: Switch to English
+    ru: Перейти на Русский
   time:
     # Форматы времени
     formats:

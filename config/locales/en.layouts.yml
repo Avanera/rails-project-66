@@ -1,0 +1,14 @@
+en:
+  layouts:
+    web:
+      application:
+        app_name: Repository Quality Analyzer
+        footer: "Repository Quality Analyzer, %{year}"
+      shared:
+        nav:
+          home: Home
+          log_out: Log out
+          github_login: Login via Github
+          repositories: Repositories
+  flashes:
+    not_logged_in: To perform the operation, you must log in to the system.

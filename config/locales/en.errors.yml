@@ -1,0 +1,8 @@
+en:
+  errors:
+    messages:
+      blank: can not be blank
+      not_saved:
+        one: "%{resource}: saving failed due to %{count} error:"
+        many: "%{resource}: saving failed due to %{count} errors:"
+      too_short: is too short

@@ -1,0 +1,6 @@
+ru:
+  services:
+    check_repo:
+      errors:
+        directory_not_found: "Директория %{repo_path} не найдена после копирования!"
+        failed_to_get_commit_id: "Не удалось получить ID коммита: %{stderr}"
