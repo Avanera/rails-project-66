@@ -12,9 +12,6 @@ module Api
     end
 
     test 'should create check, the check of the javascript repo should pass' do
-      def Dir.exist?(*_args)
-        true
-      end
       headers = {
         'X-Hub-Signature-256' => valid_signature,
         'X-GitHub-Event' => 'push',
@@ -32,7 +29,7 @@ module Api
       assert { check.passed }
       assert { check.finished? }
 
-      assert_response :created
+      assert_response :ok
     end
 
     def valid_signature

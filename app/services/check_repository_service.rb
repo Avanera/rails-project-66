@@ -26,11 +26,12 @@ class CheckRepositoryService
     @check.start!
     run_linter
     @check.finish!
+
     send_check_offenses_email unless @check.passed
   end
 
   def run_linter
-    linter_class = "Linter::#{@repository.language.capitalize}LinterService".constantize
+    linter_class = "Linter::#{@repository.language&.capitalize || 'Ruby'}LinterService".constantize
     linter_class.new(@repo_path, @repository, @check).run
   end
 
@@ -48,7 +49,7 @@ class CheckRepositoryService
 
   def validate_directory_presence
     MAX_ATTEMPTS.times do
-      return if Dir.exist?(@repo_path)
+      return if ApplicationContainer[:dir].exist?(@repo_path)
 
       sleep SLEEP_INTERVAL
     end
@@ -74,6 +75,8 @@ class CheckRepositoryService
 
   def handle_failure(error)
     @check.fail!
+    Rails.logger.debug { "Printing failure error: #{error.message}" }
+    Rails.logger.debug @repository
     Rails.logger.error(error.message)
     CheckMailer.with(
       check: @check,

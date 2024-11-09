@@ -10,8 +10,10 @@ module Linter
 
     def run
       stdout, = ApplicationContainer[:open3].capture3(linter_command)
+      Rails.logger.debug { "Printing stdout: #{stdout}" }
       offenses = parse_offenses(stdout).compact
       @check.update(passed: offenses.empty?)
+      Rails.logger.debug { "Printing offenses: #{offenses}" }
       @check.offenses.create(offenses) if offenses.any?
     end
 
@@ -26,6 +28,8 @@ module Linter
     end
 
     def generate_github_url(file_path, line)
+      return nil unless @repository.clone_url
+
       base_url = @repository.clone_url.gsub('.git', '')
       "#{base_url}/tree/#{@check.commit_id}/#{file_path}#L#{line}"
     end

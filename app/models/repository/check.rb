@@ -7,7 +7,7 @@ class Repository::Check < ApplicationRecord
   has_many :offenses, dependent: :destroy
 
   aasm column: :aasm_state do
-    state :created, initial: true, display: I18n.t(jj)
+    state :created, initial: true
     state :checking, :finished, :failed
 
     event :start do

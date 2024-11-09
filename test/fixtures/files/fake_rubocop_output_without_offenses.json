@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "rubocop_version": "1.50.2",
+    "ruby_engine": "ruby",
+    "ruby_version": "3.1.2",
+    "ruby_patchlevel": "20",
+    "ruby_platform": "x86_64-linux"
+  },
+  "files": [
+    {
+      "path": "tmp/repositories/598171254/app/channels/application_cable/channel.rb",
+      "offenses": []
+    },
+    {
+      "path": "tmp/repositories/598171254/app/channels/application_cable/connection.rb",
+      "offenses": []
+    }
+  ],
+  "summary": {
+    "offense_count": 0,
+    "target_file_count": 2,
+    "inspected_file_count": 2
+  }
+}

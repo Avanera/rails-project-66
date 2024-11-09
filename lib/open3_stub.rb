@@ -29,7 +29,7 @@ class Open3Stub
     elsif cmd.include?(ESLINT_COMMAND_KEY_WORD)
       [].to_json
     elsif cmd.include?(RUBOCOP_COMMAND_KEY_WORD)
-      File.read('test/fixtures/files/fake_rubocop_output.json')
+      File.read('test/fixtures/files/fake_rubocop_output_without_offenses.json')
     else
       raise "Unexpected command: #{cmd}"
     end

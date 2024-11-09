@@ -18,4 +18,12 @@ class ApplicationContainer
       Open3
     end
   end
+
+  register(:dir) do
+    if Rails.env.test?
+      DirStub.new
+    else
+      Dir
+    end
+  end
 end

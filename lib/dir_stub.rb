@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-class LinterStub
+class DirStub
   def initialize(*); end
-  def run(*); end
+
+  def exist?(*)
+    true
+  end
 end
