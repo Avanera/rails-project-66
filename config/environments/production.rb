@@ -88,7 +88,9 @@ Rails.application.configure do
     address: Rails.application.credentials.mail_address,
     domain: Rails.application.credentials.mail_domain,
     port: Rails.application.credentials.mail_port,
-    authentication: :plain
+    authentication: :plain,
+    open_timeout: 5,
+    read_timeout: 5
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
