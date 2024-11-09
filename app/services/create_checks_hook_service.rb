@@ -6,7 +6,7 @@ class CreateChecksHookService
       repository.full_name,
       'web',
       {
-        url: Rails.application.routes.url_helpers.api_checks_url(host: ENV.fetch('BASE_URL', nil)),
+        url: Rails.application.routes.url_helpers.api_checks_url,
         content_type: 'json',
         secret: Rails.application.credentials.webhook_secret_github
       },

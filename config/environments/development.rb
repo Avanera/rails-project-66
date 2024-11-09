@@ -90,4 +90,7 @@ Rails.application.configure do
 
   # Allow access to the Rails application via an external domain (ngrok)
   config.hosts.clear
+
+  # create an external link for web hooks(ngrok)
+  routes.default_url_options = { host: ENV.fetch('BASE_URL') }
 end
