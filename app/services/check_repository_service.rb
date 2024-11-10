@@ -75,7 +75,6 @@ class CheckRepositoryService
 
   def handle_failure(error)
     @check.fail!
-    Rails.logger.debug { "Printing failure error: #{error.message}" }
     Rails.logger.debug @repository
     Rails.logger.error(error.message)
     CheckMailer.with(
