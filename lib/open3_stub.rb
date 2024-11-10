@@ -20,7 +20,6 @@ class Open3Stub
 
   private
 
-  # rubocop:disable Metrics/MethodLength
   def build_stdout(cmd)
     if cmd.include?(GIT_CLONE_COMMAND_KEY_WORD)
       StringIO.new('')
@@ -34,7 +33,6 @@ class Open3Stub
       raise "Unexpected command: #{cmd}"
     end
   end
-  # rubocop:enable Metrics/MethodLength
 
   def build_wait_thread
     wait_thr = OpenStruct.new(value: OpenStruct.new(exitstatus: 0)) # rubocop:disable Style/OpenStructUse
